@@ -37,7 +37,7 @@ for span in spans:
 # How about we start with the below strategy of drilling
 # down into each subsequent layer of the header cells?
 # That'll help emphasize the tree-like/nested structure of HTML.
-# Then at the add, we could circle back and demo the more advanced technique
+# Then at the end, we could circle back and demo the more advanced technique
 # that uses class selector.
 for cell in table_head.find_all('th'):
     fieldnames.append(cell.p.span.text)
