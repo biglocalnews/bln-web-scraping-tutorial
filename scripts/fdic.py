@@ -40,7 +40,6 @@ for span in spans:
 # Then at the add, we could circle back and demo the more advanced technique
 # that uses class selector.
 for cell in table_head.find_all('th'):
-    print(cell.tr.p)
     fieldnames.append(cell.p.span.text)
 
 fieldnames.append('url')
