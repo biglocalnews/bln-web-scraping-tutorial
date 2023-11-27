@@ -14,37 +14,36 @@ response.raise_for_status()
 soup = BeautifulSoup(response.text, 'html.parser')
 
 results = []
+fieldnames = []
 
 table = soup.find('table')
 
-table_head = table.find('thead')
-spans = table_head.find_all('span', {'class': 'dtfullname'})
+thead = table.find('thead')
 
-fieldnames = []
-
-for span in spans:
-    fieldnames.append(span.text)
+for th in thead.find_all('th'):
+    fieldnames.append(th.p.span.text)
 
 fieldnames.append('url')
 
 results.append(fieldnames)
 
-table_body = table.find('tbody')
+tbody = table.find('tbody')
 
-rows = table_body.find_all('tr')
+trs = tbody.find_all('tr')
 
-for row in rows:
-    cells = row.find_all('td')
+for tr in trs:
+    tds = tr.find_all('td')
     values = []
-    for cell in cells:
-        values.append(cell.text)
+    for td in tds:
+        values.append(td.text)
 
-    bank_link = row.find('a')
+    bank_link = tr.find('a')
     href = bank_link['href']
     bank_url = 'https://www.fdic.gov/' + href
     values.append(bank_url)
 
     results.append(values)
 
-
-# TODO: write out results to csv file
+with open('./data/raw/fdic_failed_banks.csv', 'w') as outfile:
+    output = csv.writer(outfile)
+    output.writerows(results)
