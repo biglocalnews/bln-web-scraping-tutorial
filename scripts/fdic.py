@@ -21,7 +21,8 @@ table = soup.find('table')
 thead = table.find('thead')
 
 for th in thead.find_all('th'):
-    fieldnames.append(th.p.span.text)
+    fieldname = th.p.span.text
+    fieldnames.append(fieldnames)
 
 fieldnames.append('url')
 

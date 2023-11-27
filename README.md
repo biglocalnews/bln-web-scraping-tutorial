@@ -1,5 +1,6 @@
 # Web Scraping 101
 
+- [Getting started](#getting-started)
 - [Overview](#overview)
 - [Dissecting a web site](#dissecting-a-web-site)
 - [Scraping strategies](#scraping-strategies)
@@ -10,7 +11,29 @@
   - [Dynamic content](#dynamic-content)
   - [Stateful web scraping](#stateful-web-scraping)
 
+## Getting started
+This repository covers basic web scraping techniques. In this lesson we will be scraping the FDIC's [failed banks list](https://www.fdic.gov/resources/resolutions/bank-failures/failed-bank-list/). 
 
+Notebook version - [scrape_fdic.ipynb](scrape_fdic.ipynb)
+
+Python script version - [./scripts/fdic.py](scripts/fdic.py).
+
+To get started clone into this repository:
+```bash
+git clone git@github.com:biglocalnews/nyt-web-scraping-tutorial.git
+```
+Change your directory to the repository:
+```bash
+cd nyt-web-scraping-tutorial
+```
+Install the requirements:
+```bash
+pip install -r requirements.txt
+```
+Start up Jupyter Lab to run the notebook:
+```bash
+jupyter lab
+```
 ## Overview
 
 [Web scraping](README.md) can be more or less
