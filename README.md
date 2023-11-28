@@ -16,8 +16,6 @@ This repository covers basic web scraping techniques. In this lesson we will be 
 
 Notebook version - [scrape_fdic.ipynb](scrape_fdic.ipynb)
 
-Python script version - [./scripts/fdic.py](scripts/fdic.py).
-
 To get started clone into this repository:
 ```bash
 git clone git@github.com:biglocalnews/nyt-web-scraping-tutorial.git
@@ -63,7 +61,7 @@ are some questions to ask when assessing a site:
 -   Is the site using [sessions](#stateful-web-scraping) to manage client connections?
 
 -   Is the target data in the source HTML or is it
-    [dynamically generated](#dynamic-content) by Javascript after the page has loaded in the browser.
+    [dynamically generated](#dynamic-content) by Javascript after the page has loaded in the browser?
 
 [pagination]: https://en.wikipedia.org/wiki/Pagination#Pagination_on_UI
 
@@ -159,6 +157,8 @@ Login-based sites will also often use sessions/cookies to manage your interactio
 
 Many sites use Javascript to dynamically add or transform page content ***after*** you've loaded the page. This means that what you see in the source HTML using View Source will not match what you see in the browser
 (or the Elements tab of Chrome Developer Tools).
+
+Sometimes you access the data the JavaScript is pulling from -- such as identifying a .JSON file that contains all of the data you want. It's a good idea to look through the Network tab of Developer Tab, and often just putting "json" in the filename filter, to see if that's it. If the data file is there, the file format will likely be easier to work with than reparsing the dynamic content within the HTML page itself.
 
 Scraping such a page requires using a library such as [Selenium](https://selenium-python.readthedocs.io/index.html), which uses the "web driver" technology behind browsers such as Firefox to automate browser interactions.
 
